@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
 function isEduAu(email) {
-  return email.toLowerCase().trim().endsWith('.edu.au')
+  return email.toLowerCase().trim().endsWith('.edu')
 }
 
 export default function Landing() {
@@ -17,7 +17,7 @@ export default function Landing() {
     setError('')
 
     if (!isEduAu(email)) {
-      setError('Please use your university .edu.au email address.')
+      setError('Please use your university .edu email address.')
       return
     }
 
@@ -57,7 +57,7 @@ export default function Landing() {
               <input
                 className="input-base"
                 type="email"
-                placeholder="you@student.unimelb.edu.au"
+                placeholder="you@student.unimelb.edu"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 required
@@ -72,7 +72,7 @@ export default function Landing() {
           </form>
 
           <p className="text-center text-xs text-gray-400 mt-6">
-            Only .edu.au emails accepted — keeping it campus-safe.
+            Only .edu emails accepted — keeping it campus-safe.
           </p>
         </div>
 
